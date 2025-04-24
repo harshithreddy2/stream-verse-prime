@@ -1,8 +1,7 @@
-
 import { Movie } from "@/types/movie";
 
 // API configuration
-const API_KEY = 'f15c63f69ca1ba83ebfbde99bd770dd3'; // This is a public demo key for TMDB API
+const API_KEY = 'YOUR_TMDB_API_KEY'; // Replace this with your actual TMDB API key
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
 
