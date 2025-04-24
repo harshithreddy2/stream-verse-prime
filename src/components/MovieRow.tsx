@@ -9,7 +9,7 @@ interface MovieRowProps {
   movies: Movie[];
 }
 
-const MovieRow = ({ title, movies }: MovieRowProps) => {
+const MovieRow = ({ title, movies = [] }: MovieRowProps) => {
   const rowRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -39,7 +39,10 @@ const MovieRow = ({ title, movies }: MovieRowProps) => {
     );
   };
 
-  if (movies.length === 0) return null;
+  // Safeguard for when movies is null or undefined
+  const moviesList = movies || [];
+  
+  if (moviesList.length === 0) return null;
 
   return (
     <div className="py-4">
@@ -62,7 +65,7 @@ const MovieRow = ({ title, movies }: MovieRowProps) => {
           className="flex space-x-4 overflow-x-auto py-4 scrollbar-hide px-4"
           onScroll={handleScroll}
         >
-          {movies.map(movie => (
+          {moviesList.map(movie => (
             <div key={movie.id} className="flex-shrink-0 w-[160px] md:w-[200px]">
               <MovieCard movie={movie} />
             </div>
