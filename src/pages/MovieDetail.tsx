@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Play, Plus, Check, Star, Calendar, Clock } from 'lucide-react';
+import { Play, Plus, Check, Star, Calendar, Clock, User as UserIcon, X as XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { fetchMovieDetails, posterSizes, backdropSizes } from '@/services/api';
 import { Movie } from '@/types/movie';
@@ -189,7 +188,7 @@ const MovieDetail = () => {
                                 />
                               ) : (
                                 <div className="w-full h-full flex items-center justify-center">
-                                  <User size={24} className="text-gray-500" />
+                                  <UserIcon size={24} className="text-gray-500" />
                                 </div>
                               )}
                             </div>
@@ -213,7 +212,7 @@ const MovieDetail = () => {
                   className="absolute -top-12 right-0 text-white hover:text-gray-300"
                   onClick={() => setShowTrailer(false)}
                 >
-                  <X size={24} />
+                  <XIcon size={24} />
                 </button>
                 <div className="relative pb-[56.25%] h-0">
                   <iframe

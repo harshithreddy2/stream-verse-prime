@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search as SearchIcon } from 'lucide-react';
@@ -23,7 +22,7 @@ const Search = () => {
   
   // Filter the results based on genre and year
   const filteredResults = results.filter(movie => {
-    const matchesGenre = !selectedGenre || movie.genre_ids?.includes(selectedGenre);
+    const matchesGenre = !selectedGenre || movie.genres?.some(genre => genre.id === selectedGenre);
     const matchesYear = !yearFilter || 
       (movie.release_date && movie.release_date.startsWith(yearFilter));
     
